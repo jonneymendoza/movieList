@@ -1,6 +1,7 @@
 package com.richards.jonathan.movielist.data.network
 
 import com.richards.jonathan.movielist.BuildConfig
+import com.richards.jonathan.movielist.data.network.contract.NetworkHelperContract
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
