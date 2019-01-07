@@ -1,6 +1,7 @@
 package com.richards.jonathan.movielist.data.network
 
 import com.google.gson.GsonBuilder
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.richards.jonathan.movielist.BuildConfig
 import com.richards.jonathan.movielist.data.entity.MovieList
 import com.richards.jonathan.movielist.data.network.contract.MovieDbApi
@@ -20,6 +21,7 @@ class MovieNetworkController constructor(var networkHelper: NetworkHelperContrac
                 .baseUrl(BuildConfig.BASE_URL)
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .build()
 
         return retrofit.create(MovieDbApi::class.java)
