@@ -5,7 +5,7 @@ import com.richards.jonathan.movielist.data.network.contract.MovieNetworkControl
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 
-class MovieRepository constructor(val movieNetworkController: MovieNetworkControllerContract) : MovieRepositoryContract {
+class MovieRepository constructor(private val movieNetworkController: MovieNetworkControllerContract) : MovieRepositoryContract {
     override fun getTopTenMovies(language: String, sortType: String): Deferred<Response<MovieList>> {
         return movieNetworkController.getTopTenMovies(language, sortType)
     }
