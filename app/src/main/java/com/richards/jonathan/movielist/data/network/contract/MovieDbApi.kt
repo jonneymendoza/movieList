@@ -15,7 +15,7 @@ interface MovieDbApi {
         const val PARAM_PAGE = "page"
     }
 
-    @GET("/discover/movie")
+    @GET("discover/movie")
     fun getTopTenMovies(@Query(PARAM_API_KEY) apiKey : String,
                         @Query(PARAM_LANGUAGE) language : String,
                         @Query(PARAM_SORT_BY) sortType : String,
