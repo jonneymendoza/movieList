@@ -14,7 +14,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.richards.jonathan.movielist.MoviesTestRunner"
         buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
         buildConfigField "String", "API_KEY", "\"1b0adca86d4fc94df841aa70bacd8e33\""
 
@@ -25,14 +25,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+
 }
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 
 dependencies {
 
     def lifecycle_version = "2.0.0"
+    def mockito = "2.21.0"
+    def mockito_android = "2.23.4"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
@@ -57,7 +73,37 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //android instrumental test
+    androidTestImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.ext:truth:1.1.0'
+    androidTestImplementation 'androidx.test:core:1.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation('androidx.arch.core:core-testing:2.0.0') {
+        exclude group: 'org.mockito:mockito-core'
+    }
+    androidTestUtil 'androidx.test:orchestrator:1.1.1'
+    androidTestImplementation 'com.github.tmurakami:dexopener:2.0.0'
+    androidTestImplementation 'com.jraska.livedata:testing-ktx:0.6.0'
+    androidTestImplementation 'com.jraska.livedata:testing:0.6.0'
+    androidTestImplementation "org.mockito:mockito-android:$mockito_android"
+//        exclude group: 'org.mockito'
+//    }
+
+    androidTestImplementation('org.koin:koin-test:1.0.2') {
+        exclude group: 'org.mockito'
+    }
+
+    //unit test
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:$mockito"
+    testImplementation "org.mockito:mockito-android:$mockito"
+    testImplementation "org.mockito:mockito-inline:$mockito"
+    testImplementation 'org.koin:koin-test:1.0.2'
+    testImplementation 'androidx.test.ext:junit:1.1.0'
+    testImplementation 'androidx.arch.core:core-testing:2.0.0'
+    testImplementation 'com.jraska.livedata:testing-ktx:0.6.0'
+    testImplementation 'com.jraska.livedata:testing:0.6.0'
+    testImplementation 'androidx.test.ext:truth:1.1.0'
 }
