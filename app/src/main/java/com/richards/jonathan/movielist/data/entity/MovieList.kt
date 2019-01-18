@@ -1,6 +1,8 @@
 package com.richards.jonathan.movielist.data.entity
 
-data class MovieList(val page: Long,
-                     val totalResults: Long,
-                     val totalPages: Long,
+import com.google.gson.annotations.SerializedName
+
+data class MovieList(val page: Int,
+                     @SerializedName("total_results") val totalResults: Int,
+                     @SerializedName("total_pages") val totalPages: Int,
                      val results: MutableList<MovieItem>)
