@@ -7,8 +7,9 @@ abstract class BaseFragment : Fragment() {
 
     lateinit var activity: MainActivity
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         activity = context as MainActivity
     }
+
 }
