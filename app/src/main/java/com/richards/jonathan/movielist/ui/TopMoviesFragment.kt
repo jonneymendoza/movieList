@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.richards.jonathan.movielist.R
 import com.richards.jonathan.movielist.data.Status
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TopMoviesFragment : BaseFragment() {
 
-    private val movieListViewModel: MovieListViewModel by inject()
+    private val movieListViewModel: MovieListViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.top_movies_layout, container, false)
@@ -24,7 +24,7 @@ class TopMoviesFragment : BaseFragment() {
 
 
         //get top movies
-        movieListViewModel.getTopMovies().observe(this, Observer {
+       movieListViewModel.getTopMovies().observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
                     Log.d("JJJ", "SUCCESS we got some data!")

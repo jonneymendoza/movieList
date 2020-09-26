@@ -3,6 +3,7 @@ package com.richards.jonathan.movielist.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.richards.jonathan.movielist.R
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
