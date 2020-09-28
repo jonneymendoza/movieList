@@ -24,12 +24,12 @@ class MainActivity : AppCompatActivity() {
 
     fun goTo(page: Navigate) {
         when (page) {
-            Navigate.TOP_MOVIES -> {
+            is Navigate.TopMovies -> {
                 navigateToFragment(TopMoviesFragment())
             }
-            Navigate.MAIN_MENU -> TODO()
-            Navigate.SEARCH_MOVIE -> TODO()
-            Navigate.SHOW_FAVOURITES -> TODO()
+            is Navigate.MainMenu -> TODO()
+            Navigate.SearchMovie -> TODO()
+            Navigate.FavouriteMovies -> TODO()
         }
     }
 

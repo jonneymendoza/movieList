@@ -1,5 +1,13 @@
 package com.richards.jonathan.movielist.ui
 
-enum class Navigate {
-    MAIN_MENU, TOP_MOVIES, SEARCH_MOVIE, SHOW_FAVOURITES
+sealed class Navigate {
+
+    object MainMenu : Navigate()
+
+    object TopMovies : Navigate()
+
+    object SearchMovie : Navigate()
+
+    object FavouriteMovies : Navigate()
+
 }
