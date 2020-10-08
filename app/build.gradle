@@ -6,12 +6,14 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+def jetpack_compose = "1.0.0-alpha04"
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.richards.jonathan.movielist"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "com.richards.jonathan.movielist.MoviesTestRunner"
@@ -30,6 +32,22 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion '1.4.0'
+        kotlinCompilerExtensionVersion "$jetpack_compose"
+    }
+
+
     useLibrary 'android.test.runner'
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
@@ -47,6 +65,7 @@ dependencies {
     def mockito = "2.25.1"
     def mockito_android = "2.23.4"
     def koin_version = "2.1.6"
+
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -98,6 +117,8 @@ dependencies {
         exclude group: 'org.mockito'
     }
 
+    implementation 'com.husseinala.neon:picasso:0.1.4'
+
     //unit test
     testImplementation 'junit:junit:4.12'
     testImplementation "org.mockito:mockito-core:$mockito"
@@ -109,4 +130,21 @@ dependencies {
     testImplementation 'com.jraska.livedata:testing-ktx:0.6.0'
     testImplementation 'com.jraska.livedata:testing:0.6.0'
     testImplementation 'androidx.test.ext:truth:1.3.0'
+
+    //JetPack Compose stuff
+    implementation "androidx.compose.ui:ui:$jetpack_compose"
+    // Tooling support (Previews, etc.)
+    implementation "androidx.ui:ui-tooling:$jetpack_compose"
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.foundation:foundation:$jetpack_compose"
+    // Material Design
+    implementation "androidx.compose.material:material:$jetpack_compose"
+    // Material design icons
+    implementation "androidx.compose.material:material-icons-core:$jetpack_compose"
+    implementation "androidx.compose.material:material-icons-extended:$jetpack_compose"
+    // Integration with observables
+    implementation "androidx.compose.runtime:runtime-livedata:$jetpack_compose"
+    implementation "androidx.compose.runtime:runtime-rxjava2:$jetpack_compose"
+    // UI Tests
+    androidTestImplementation "androidx.ui:ui-test:$jetpack_compose"
 }

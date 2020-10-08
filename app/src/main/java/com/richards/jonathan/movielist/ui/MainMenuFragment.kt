@@ -17,9 +17,7 @@ class MainMenuFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         showTopMovieBtn.setOnClickListener {
-            activity.goTo(Navigate.TopMovies())
+            activity.goTo(Navigate.TopMovies)
         }
-
-
     }
 }
