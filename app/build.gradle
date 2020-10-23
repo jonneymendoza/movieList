@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-def jetpack_compose = "1.0.0-alpha04"
+def jetpack_compose = "1.0.0-alpha05"
 
 android {
     compileSdkVersion 30
@@ -35,6 +35,9 @@ android {
     buildFeatures {
         // Enables Jetpack Compose for this module
         compose true
+
+        viewBinding true
+
     }
 
     kotlinOptions {
@@ -62,7 +65,7 @@ repositories {
 dependencies {
 
     def lifecycle_version = "2.2.0"
-    def mockito = "2.25.1"
+    def mockito = "3.3.3"
     def mockito_android = "2.23.4"
     def koin_version = "2.1.6"
 
@@ -72,7 +75,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
     //network lib
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'

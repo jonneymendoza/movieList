@@ -2,7 +2,7 @@ package com.richards.jonathan.movielist.data
 
 
 /**
- * generic clas that is used to hold a value and its state. use for fetching data that takes a while to get
+ * generic class that is used to hold a value and its state. use for fetching data that takes a while to get
  *
  * reference : https://github.com/googlesamples/android-architecture-components/blob/master/GithubBrowserSample/app/src/main/java/com/android/example/github/vo/Resource.kt
  */
