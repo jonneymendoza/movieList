@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-def jetpack_compose = "1.0.0-alpha05"
+def jetpack_compose = "1.0.0-alpha06"
 
 android {
     compileSdkVersion 30
@@ -50,8 +50,6 @@ android {
         kotlinCompilerExtensionVersion "$jetpack_compose"
     }
 
-
-    useLibrary 'android.test.runner'
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
 
@@ -75,7 +73,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     //network lib
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'

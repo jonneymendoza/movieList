@@ -14,9 +14,10 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.koin.standalone.StandAloneContext.loadKoinModules
-import org.koin.standalone.inject
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
+import org.koin.test.inject
 
 class ShowTopRatingUseCaseTest : KoinTest {
 
@@ -28,11 +29,14 @@ class ShowTopRatingUseCaseTest : KoinTest {
 
     @Before
     fun setUp() {
-        loadKoinModules(listOf(TestModule.getTestModules()))
+        startKoin {
+            modules(listOf(TestModule.getTestModules()))
+        }
     }
 
     @After
     fun tearDown() {
+        stopKoin()
     }
 
     @Test

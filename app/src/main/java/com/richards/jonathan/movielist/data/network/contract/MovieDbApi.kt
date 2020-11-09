@@ -13,6 +13,7 @@ interface MovieDbApi {
         const val PARAM_LANGUAGE = "language"
         const val PARAM_SORT_BY = "sort_by"
         const val PARAM_PAGE = "page"
+        const val PARAM_QUERY = "query"
     }
 
     @GET("discover/movie")
@@ -20,4 +21,7 @@ interface MovieDbApi {
                         @Query(PARAM_LANGUAGE) language : String,
                         @Query(PARAM_SORT_BY) sortType : String,
                         @Query(PARAM_PAGE) page : Int): Deferred<Response<MovieList>>
+
+    @GET("/search/")
+    fun searchMovie(@Query(PARAM_API_KEY) apiKey : String, @Query(PARAM_QUERY) searchTerm : String) : Deferred<Response<MovieList>>
 }

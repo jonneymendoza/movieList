@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.nio.charset.Charset
 
 
-class NetworkTestHelper constructor() : NetworkHelperContract {
+class NetworkTestHelper : NetworkHelperContract {
 
     private val mContentType = "application/json"
 
@@ -51,6 +51,7 @@ class NetworkTestHelper constructor() : NetworkHelperContract {
         inputStream?.apply {
             return readBytes().toString(Charset.forName("utf-8"))
         }
+        return ""
     }
 
 }
