@@ -3,7 +3,7 @@ package com.richards.jonathan.movielist.domain.usecase
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.jraska.livedata.test
 import com.richards.jonathan.movielist.data.Status
-import com.richards.jonathan.movielist.data.entity.MovieList
+import com.richards.jonathan.movielist.data.entity.MovieListResponse
 import com.richards.jonathan.movielist.data.network.CallHandler
 import com.richards.jonathan.movielist.data.network.contract.NetworkHelperContract
 import com.richards.jonathan.movielist.utils.NetworkTestHelper
@@ -43,14 +43,14 @@ class ShowTopRatingUseCaseTest : KoinTest {
     fun getTopRatedMovies() {
         (networkHelper as NetworkTestHelper).setMockedResponse(TestResponse("discover.json", 200))
 
-        val response = CallHandler<MovieList>().makeCall(showTopRatingUseCase.getTopRatedMovies("en-US",
+        val response = CallHandler<MovieListResponse>().makeCall(showTopRatingUseCase.getTopRatedMovies("en-US",
                 "popularity.desc")).test()
                 .awaitValue()
                 .assertHasValue()
-                .assertValue { it.status == Status.LOADING }
+                .assertValue { it.status == Status.Loading }
                 .awaitNextValue()
                 .assertValue {
-                    it.status == Status.SUCCESS
+                    it.status == Status.Success
                 }
                 .value()
         val data = response.data

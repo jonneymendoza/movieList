@@ -3,7 +3,7 @@ package com.richards.jonathan.movielist.data.network
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.richards.jonathan.movielist.BuildConfig
-import com.richards.jonathan.movielist.data.entity.MovieList
+import com.richards.jonathan.movielist.data.entity.MovieListResponse
 import com.richards.jonathan.movielist.data.network.contract.MovieDbApi
 import com.richards.jonathan.movielist.data.network.contract.MovieNetworkControllerContract
 import com.richards.jonathan.movielist.data.network.contract.NetworkHelperContract
@@ -27,12 +27,12 @@ class MovieNetworkController constructor(var networkHelper: NetworkHelperContrac
         return retrofit.create(MovieDbApi::class.java)
     }
 
-    override fun getTopTenMovies(language: String, sortType: String): Deferred<Response<MovieList>> {
+    override fun getTopTenMovies(language: String, sortType: String): Deferred<Response<MovieListResponse>> {
         return getMovieDdApi().getTopTenMovies(BuildConfig.API_KEY, language, sortType, 1)
     }
 
-    override fun searchMovie(title: String): Deferred<Response<MovieList>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun searchMovie(title: String): Deferred<Response<MovieListResponse>> {
+        return getMovieDdApi().searchMovie(BuildConfig.API_KEY, title)
     }
 
 }

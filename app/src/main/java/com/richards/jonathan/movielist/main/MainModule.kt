@@ -1,5 +1,6 @@
 package com.richards.jonathan.movielist.main
 
+import com.squareup.picasso.Picasso
 import org.koin.dsl.module
 
 /**
@@ -7,4 +8,5 @@ import org.koin.dsl.module
  */
 val MainAppModule = module {
 
+    single { Picasso.Builder(get()).build() }
 }

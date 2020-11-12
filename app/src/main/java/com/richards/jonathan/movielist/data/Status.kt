@@ -1,5 +1,7 @@
 package com.richards.jonathan.movielist.data
 
-enum class Status {
-    ERROR,LOADING,SUCCESS
+sealed class Status {
+    object Error : Status()
+    object Loading : Status()
+    object Success : Status()
 }
