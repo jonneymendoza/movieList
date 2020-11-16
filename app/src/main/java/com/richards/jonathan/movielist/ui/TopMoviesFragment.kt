@@ -1,7 +1,6 @@
 package com.richards.jonathan.movielist.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.richards.jonathan.movielist.BuildConfig
 import com.richards.jonathan.movielist.data.Resource
 import com.richards.jonathan.movielist.data.Status
 import com.richards.jonathan.movielist.data.entity.MovieItem
@@ -60,12 +60,11 @@ class TopMoviesFragment : BaseFragment() {
     @Composable
     private fun createMovieItemView(movieList: List<MovieItem>) {
         LazyColumnFor(items = movieList, itemContent = { movieItem ->
-            Text(text = movieItem.title.orEmpty())
-            MovieListItem(MovieItemData(movieItem.posterPath.orEmpty(),
+//            Text(text = movieItem.title.orEmpty())
+            MovieListItem(MovieItemData(BuildConfig.BASE_URL_IMAGE + movieItem.posterPath.orEmpty(),
                     movieItem.title.orEmpty(),
                     movieItem.releaseDate.orEmpty(),
-                    "some genre", ""), picasso)
-
+                    "some genre", ""), picasso).getMovieListItemView()
         })
     }
 }
