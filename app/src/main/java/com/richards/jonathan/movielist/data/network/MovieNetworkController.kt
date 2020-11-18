@@ -12,7 +12,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MovieNetworkController constructor(var networkHelper: NetworkHelperContract) : MovieNetworkControllerContract {
+class MovieNetworkController constructor(private val networkHelper: NetworkHelperContract) : MovieNetworkControllerContract {
 
     private fun getMovieDdApi(): MovieDbApi {
         val gson = GsonBuilder().setLenient().create()
