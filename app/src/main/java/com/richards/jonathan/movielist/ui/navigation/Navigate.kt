@@ -1,4 +1,4 @@
-package com.richards.jonathan.movielist.ui
+package com.richards.jonathan.movielist.ui.navigation
 
 sealed class Navigate {
 

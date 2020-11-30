@@ -1,4 +1,4 @@
-package com.richards.jonathan.movielist.ui
+package com.richards.jonathan.movielist.ui.screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,8 +17,10 @@ import com.richards.jonathan.movielist.data.Resource
 import com.richards.jonathan.movielist.data.Status
 import com.richards.jonathan.movielist.data.entity.MovieItem
 import com.richards.jonathan.movielist.data.entity.MovieListResponse
+import com.richards.jonathan.movielist.ui.main.BaseFragment
 import com.richards.jonathan.movielist.ui.data.MovieItemData
 import com.richards.jonathan.movielist.ui.view.MovieListItem
+import com.richards.jonathan.movielist.ui.viewmodel.MovieListViewModel
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

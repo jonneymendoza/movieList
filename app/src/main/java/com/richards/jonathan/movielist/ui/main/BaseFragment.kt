@@ -1,4 +1,4 @@
-package com.richards.jonathan.movielist.ui
+package com.richards.jonathan.movielist.ui.main
 
 import android.content.Context
 import androidx.fragment.app.Fragment

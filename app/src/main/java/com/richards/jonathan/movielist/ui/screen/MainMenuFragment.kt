@@ -1,10 +1,12 @@
-package com.richards.jonathan.movielist.ui
+package com.richards.jonathan.movielist.ui.screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.richards.jonathan.movielist.databinding.MainMenuFragmentBinding
+import com.richards.jonathan.movielist.ui.main.BaseFragment
+import com.richards.jonathan.movielist.ui.navigation.Navigate
 
 
 class MainMenuFragment : BaseFragment() {
