@@ -8,12 +8,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.ui.tooling.preview.Preview
 import com.richards.jonathan.movielist.ui.data.MovieItemData
 import com.squareup.picasso.Picasso
 import dev.chrisbanes.accompanist.coil.CoilImage
 
-class MovieListItem(private val movieItemData: MovieItemData, private val picasso: Picasso) {
-
+class MovieListItem constructor(private val movieItemData: MovieItemData, private val picasso: Picasso) {
 
     @Composable
     fun getMovieListItemView() {
